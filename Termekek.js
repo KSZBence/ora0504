@@ -5,17 +5,22 @@ class Termekek{
     #kedvncek = []
     constructor(){
         const aszinkron = new Aszinkron()
-        let vegpont = "adatok.json"
+        let vegpont = "http://localhost:3000/ADATOK"
         aszinkron.adatBeolvas(vegpont, this.#termekMegjelenito)
-        $(window).on("gombEvent",(event)=>{
+        $(window).on("kedvencekhez",(event)=>{
             this.#kedvncek.push(event.detail)
         })        
+
+        
+        $(window).on("torol",(event)=>{
+            aszinkron.adatTorles(vegpont, event.detail)
+        })  
     }
     
     #termekMegjelenito(lista){
-        let sajatlista = lista.LISTA
+        let sajatlista = lista
         let szuloElem = $("body main div")
-        for (let index = 0; index < ADATOK.length; index++) {
+        for (let index = 0; index < lista.length; index++) {
             let termek = new Termek(lista[index], szuloElem);
         }
     }
