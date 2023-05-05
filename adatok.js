@@ -34,5 +34,12 @@ export const ADATOK = [
         fajta:"homo sapiens",
         ar:2000
     },
+    {
+        id: 6,
+        nev:"Test",
+        kor:0,
+        fajta:"test",
+        ar:12345
+    }
 ];
 
